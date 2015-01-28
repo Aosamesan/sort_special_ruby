@@ -38,6 +38,11 @@
 </tr>
 </table>
 
+## If an array not sorted...
+<div>
+![NOT SORTED](https://github.com/Aosamesan/sort_special_ruby/blob/master/NOT_SORTED.PNG)
+</div>
+
 ## Sort List
 1. Bubble Sort
 2. Selection Sort
