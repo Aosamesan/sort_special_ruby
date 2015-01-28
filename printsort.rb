@@ -71,25 +71,30 @@ class PrintSorter
 
 	def print_sorts size
 		@print_row.print_middle
+		random_list = make_list size
 		@print_row.print_strings nil, (Time.now.strftime " Start : %H:%M:%S"), nil
 		@print_row.print_middle
-		random_list = make_list size
 		0.upto(@@num_of_sorts - 1) do |i|
 			s_time = Time.now
+			sorted = false
 			case i
 				when 0
-					bubble_sort (Array.new random_list)
+					sorted = bubble_sort (Array.new random_list)
 				when 1
-					selection_sort (Array.new random_list)
+					sorted = selection_sort (Array.new random_list)
 				when 2
-					insertion_sort (Array.new random_list)
+					sorted = insertion_sort (Array.new random_list)
 				when 3
-					quick_sort (Array.new random_list)
+					sorted = quick_sort (Array.new random_list)
 				when 4
-					merge_sort (Array.new random_list)
+					sorted = merge_sort (Array.new random_list)
 			end
 			e_time = Time.now
-			interval_string = get_interval s_time, e_time
+			if sorted
+				interval_string = get_interval s_time, e_time
+			else
+				interval_string = '%20s' % "Not Sorted"
+			end
 			@print_row.print_strings @@sort_names[i], interval_string, size
 		end
 		@print_row.print_middle

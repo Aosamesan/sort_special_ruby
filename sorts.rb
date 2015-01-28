@@ -22,6 +22,8 @@ def bubble_sort arr
 			end
 		end
 	end
+
+	return is_sorted arr
 end
 
 def selection_sort arr
@@ -39,6 +41,8 @@ def selection_sort arr
 		arr[minIdx] = arr[i]
 		arr[i] = tmp
 	end
+
+	return is_sorted arr
 end
 
 def insertion_sort arr
@@ -52,12 +56,16 @@ def insertion_sort arr
 			j -= 1
 		end
 	end
+
+	return is_sorted arr
 end
 
 def quick_sort arr
 	size = arr.size
 
 	quick_sort_recursive arr, 0, size-1
+
+	return is_sorted arr
 end
 
 def quick_sort_recursive arr, left, right
@@ -106,6 +114,8 @@ def merge_sort arr
 	size = arr.size
 
 	merge_sort_recursive arr, 0, size
+
+	return is_sorted arr
 end
 
 def merge_sort_recursive arr, left, right
