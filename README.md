@@ -39,9 +39,7 @@
 </table>
 
 ## If an array not sorted...
-<div>
 ![NOTSORTED](https://github.com/Aosamesan/sort_special_ruby/blob/master/NOT_SORTED.PNG)
-</div>
 
 ## Sort List
 1. Bubble Sort
