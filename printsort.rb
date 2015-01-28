@@ -64,7 +64,7 @@ end
 
 class PrintSorter
 	def initialize print_row
-		@@sort_names = ["Bubble Sort", "Selection Sort", "Insertion Sort", "Quick Sort", "Merge Sort"]
+		@@sort_names = ["Bubble Sort", "Selection Sort", "Insertion Sort", "Quick Sort", "Merge Sort", "BST Sort"]
 		@@num_of_sorts = @@sort_names.size
 		@print_row = print_row
 	end
@@ -88,6 +88,8 @@ class PrintSorter
 					sorted = quick_sort (Array.new random_list)
 				when 4
 					sorted = merge_sort (Array.new random_list)
+				when 5
+					sorted = bst_sort (Array.new random_list)
 			end
 			e_time = Time.now
 			if sorted

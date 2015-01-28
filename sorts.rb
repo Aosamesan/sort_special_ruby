@@ -1,3 +1,5 @@
+require"./bst"
+
 def is_sorted arr
 	last = arr.size - 1
 
@@ -163,4 +165,18 @@ def merge arr, left, right
 	0.upto(tmp_arr.size - 1) do |k|
 		arr[left + k] = tmp_arr[k]
 	end
+end
+
+def bst_sort arr
+	tree = BinarySearchTree.new
+	push = lambda { |data| arr << data }
+
+	arr.each do |data|
+		tree.insert data
+	end
+
+	arr.clear
+	tree.bst_sort push
+
+	return is_sorted arr
 end
