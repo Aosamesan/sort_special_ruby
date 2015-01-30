@@ -48,3 +48,4 @@
 4. Quick Sort
 5. Merge Sort
 6. Sorting by *Binary Search Tree*
+7. Heap Sort
