@@ -77,7 +77,7 @@ class PrintSorter
 		0.upto(@@num_of_sorts - 1) do |i|
 			new_list = Array.new random_list
 			s_time = Time.now
-			sorted = false
+			sorted = NOT_SORTED
 			case i
 				when 0
 					sorted = bubble_sort new_list
@@ -95,10 +95,14 @@ class PrintSorter
 					sorted = heap_sort new_list
 			end
 			e_time = Time.now
-			if sorted
-				interval_string = get_interval s_time, e_time
-			else
-				interval_string = '%20s' % "Not Sorted"
+
+			case sorted
+				when SORTED
+					interval_string = get_interval s_time, e_time
+				when NOT_SORTED
+					interval_string = '%20s' % "Not Sorted"
+				when NOT_CALCED
+					interval_string = '%20s' % "Not Calculated"
 			end
 			@print_row.print_strings @@sort_names[i], interval_string, size
 		end

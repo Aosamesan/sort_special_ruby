@@ -1,19 +1,29 @@
 require"./bst"
 
+SORTED = 0
+NOT_SORTED = 1
+NOT_CALCED = 2
+
+BIG_SIZE = 60000
+
 def is_sorted arr
 	last = arr.size - 1
 
 	0.upto(last - 1) do |i|
 		if arr[i] > arr[i+1]
-			return false
+			return NOT_SORTED
 		end
 	end
 
-	return true
+	return SORTED
 end
 
 def bubble_sort arr
 	size = arr.size
+
+	if size > BIG_SIZE
+		return NOT_CALCED
+	end
 
 	(size - 1).downto(1) do |i|
 		0.upto(i-1) do |j|
@@ -30,6 +40,10 @@ end
 
 def selection_sort arr
 	size = arr.size
+
+	if size > BIG_SIZE
+		return NOT_CALCED
+	end
 
 	0.upto(size - 2) do |i|
 		minIdx = i
@@ -49,6 +63,10 @@ end
 
 def insertion_sort arr
 	size = arr.size
+
+	if size > BIG_SIZE
+		return NOT_CALCED
+	end
 
 	1.upto(size - 1) do |i|
 		rem = arr[i]
