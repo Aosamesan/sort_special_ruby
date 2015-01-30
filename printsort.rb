@@ -64,7 +64,7 @@ end
 
 class PrintSorter
 	def initialize print_row
-		@@sort_names = ["Bubble Sort", "Selection Sort", "Insertion Sort", "Quick Sort", "Merge Sort", "BST Sort"]
+		@@sort_names = ["Bubble Sort", "Selection Sort", "Insertion Sort", "Quick Sort", "Merge Sort", "BST Sort", "Heap Sort"]
 		@@num_of_sorts = @@sort_names.size
 		@print_row = print_row
 	end
@@ -75,21 +75,24 @@ class PrintSorter
 		@print_row.print_strings nil, (Time.now.strftime " Start : %H:%M:%S"), nil
 		@print_row.print_middle
 		0.upto(@@num_of_sorts - 1) do |i|
+			new_list = Array.new random_list
 			s_time = Time.now
 			sorted = false
 			case i
 				when 0
-					sorted = bubble_sort (Array.new random_list)
+					sorted = bubble_sort new_list
 				when 1
-					sorted = selection_sort (Array.new random_list)
+					sorted = selection_sort new_list
 				when 2
-					sorted = insertion_sort (Array.new random_list)
+					sorted = insertion_sort new_list
 				when 3
-					sorted = quick_sort (Array.new random_list)
+					sorted = quick_sort new_list
 				when 4
-					sorted = merge_sort (Array.new random_list)
+					sorted = merge_sort new_list
 				when 5
-					sorted = bst_sort (Array.new random_list)
+					sorted = bst_sort new_list
+				when 6
+					sorted = heap_sort new_list
 			end
 			e_time = Time.now
 			if sorted

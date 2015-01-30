@@ -180,3 +180,57 @@ def bst_sort arr
 
 	return is_sorted arr
 end
+
+def sift_down arr, startIdx, endIdx
+	root = startIdx
+
+	while (2 * root) + 1 <= endIdx
+		child = 2 * root + 1
+		swap = root
+
+		if arr[swap] < arr[child]
+			swap = child
+		end
+
+		if child < endIdx && arr[swap] < arr[child+1]
+			swap = child + 1
+		end
+
+		if swap == root
+			return
+		else
+			tmp = arr[root]
+			arr[root] = arr[swap]
+			arr[swap] = tmp
+
+			root = swap
+		end
+	end
+end
+
+def heapify arr
+	startIdx = (arr.size - 2) / 2
+	endIdx = arr.size - 1
+
+	while startIdx >= 0
+		sift_down arr, startIdx, endIdx
+		startIdx -= 1
+	end
+end
+
+def heap_sort arr
+	endIdx = arr.size - 1
+
+	heapify arr
+
+	while endIdx > 0
+		tmp = arr[endIdx]
+		arr[endIdx] = arr[0]
+		arr[0] = tmp
+
+		endIdx -= 1
+		sift_down arr, 0, endIdx
+	end
+
+	is_sorted arr
+end
