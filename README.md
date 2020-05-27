@@ -16,7 +16,9 @@
 50000</pre>
 * Output
 <div>
+  
 ![EXAMPLE1](https://github.com/Aosamesan/sort_special_ruby/blob/master/EXAMPLE1.PNG)
+
 </div>
 </tr>
 </table>
@@ -33,7 +35,9 @@
 10000</pre>
 * Output
 <div>
+  
 ![EXAMPLE2](https://github.com/Aosamesan/sort_special_ruby/blob/master/EXAMPLE2.PNG)
+
 </div>
 </tr>
 </table>
